@@ -1,4 +1,4 @@
-package com.l2hyunwoo.pagingpractice.ui
+package com.l2hyunwoo.pagingpractice.presentation.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
