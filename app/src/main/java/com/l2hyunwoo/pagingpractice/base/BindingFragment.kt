@@ -1,7 +1,6 @@
-package kr.co.marubook.base
+package com.l2hyunwoo.pagingpractice.base
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,9 +8,6 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.OnLifecycleEvent
 
 abstract class BindingFragment<T : ViewDataBinding>(@LayoutRes private val layoutResId: Int) :
     Fragment() {
