@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="repo"
+            type="com.l2hyunwoo.pagingpractice.model.Repo" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,12 +18,13 @@
             android:id="@+id/repo_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:text="@{repo.name}"
             android:textColor="@color/titleColor"
             android:textSize="@dimen/repo_name_size"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="android-architecture"/>
+            tools:text="android-architecture" />
 
         <TextView
             android:id="@+id/repo_description"
@@ -28,36 +32,24 @@
             android:layout_height="wrap_content"
             android:maxLines="10"
             android:paddingVertical="@dimen/row_item_margin_vertical"
+            android:text="@{repo.description}"
             android:textColor="?android:textColorPrimary"
             android:textSize="@dimen/repo_description_size"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/repo_name"
             tools:ignore="UnusedAttribute"
-            tools:text="A collection of samples to discuss and showcase different architectural tools and patterns for Android apps."/>
-
-        <TextView
-            android:id="@+id/repo_language"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="0dp"
-            android:paddingVertical="@dimen/row_item_margin_vertical"
-            android:text="@string/language"
-            android:textSize="@dimen/repo_description_size"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/repo_description"
-            tools:ignore="RtlCompat"/>
+            tools:text="A collection of samples to discuss and showcase different architectural tools and patterns for Android apps." />
 
         <ImageView
             android:id="@+id/star"
             android:layout_width="0dp"
-            android:layout_marginVertical="@dimen/row_item_margin_vertical"
             android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/row_item_margin_vertical"
             android:src="@drawable/ic_star"
-            app:layout_constraintEnd_toStartOf="@+id/repo_stars"
             app:layout_constraintBottom_toBottomOf="@+id/repo_stars"
-            app:layout_constraintTop_toTopOf="@+id/repo_stars"
-            />
+            app:layout_constraintEnd_toStartOf="@+id/repo_stars"
+            app:layout_constraintTop_toTopOf="@+id/repo_stars" />
 
         <TextView
             android:id="@+id/repo_stars"
@@ -65,9 +57,10 @@
             android:layout_height="wrap_content"
             android:paddingVertical="@dimen/row_item_margin_vertical"
             android:textSize="@dimen/repo_description_size"
-            app:layout_constraintEnd_toStartOf="@id/forks"
             app:layout_constraintBaseline_toBaselineOf="@+id/repo_forks"
-            tools:text="30"/>
+            app:layout_constraintEnd_toStartOf="@id/forks"
+            app:setValue="@{repo.stars}"
+            tools:text="30" />
 
         <ImageView
             android:id="@+id/forks"
@@ -75,10 +68,9 @@
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/row_item_margin_vertical"
             android:src="@drawable/ic_git_branch"
-            app:layout_constraintEnd_toStartOf="@+id/repo_forks"
             app:layout_constraintBottom_toBottomOf="@+id/repo_forks"
-            app:layout_constraintTop_toTopOf="@+id/repo_forks"
-            />
+            app:layout_constraintEnd_toStartOf="@+id/repo_forks"
+            app:layout_constraintTop_toTopOf="@+id/repo_forks" />
 
         <TextView
             android:id="@+id/repo_forks"
@@ -88,6 +80,7 @@
             android:textSize="@dimen/repo_description_size"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/repo_description"
-            tools:text="30"/>
+            app:setValue="@{repo.forks}"
+            tools:text="30" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
